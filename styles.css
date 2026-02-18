@@ -4,7 +4,7 @@
     --text-color: #e0e0e0;
     --text-muted: #a0a0a0;
     --accent-primary: #00f3ff; /* Electric Blue */
-    --accent-secondary: #bd00ff; /* Purple */
+    --accent-secondary: #bd00ff; /* Purple (kept for gradients only) */
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-blur: 10px;
@@ -71,13 +71,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 2rem;
 }
 
+/* FIXED: centre section titles cleanly */
 .section-title {
     font-size: 2.5rem;
     margin: 0 auto 3rem;
     text-align: center;
     position: relative;
-    display: block;      /* was inline-block */
-    width: fit-content;  /* keeps underline sized nicely to text width */
+    display: block;
+    width: fit-content;
 }
 
 .section-title::after {
@@ -243,7 +244,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.25rem;
     color: var(--text-muted);
     margin-bottom: 2.5rem;
-    max-width: 600px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -350,10 +351,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-description {
     color: var(--text-muted);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     font-size: 0.95rem;
 }
 
+/* UPDATED: project tech tags as boxes (no purple inline text) */
 .project-tech {
     display: flex;
     flex-wrap: wrap;
@@ -363,38 +365,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .project-tech span {
     padding: 0.45rem 0.85rem;
-    background: rgba(255, 255, 255, 0.04); /* subtle transparency */
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 4px;
     font-size: 0.8rem;
     color: #cfcfcf;
-    backdrop-filter: blur(6px); /* light glass feel */
+    backdrop-filter: blur(6px);
     transition: all 0.25s ease;
 }
 
-
 .project-tech span:hover {
     border-color: var(--accent-primary);
-    background: rgba(0, 243, 255, 0.06);
+    background: rgba(0, 243, 255, 0.08);
     color: #fff;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: auto;
-}
-
-.link-btn {
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    color: #fff;
-}
-
-.link-btn:hover {
-    color: var(--accent-primary);
 }
 
 /* Skills Section */
@@ -423,6 +406,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.8rem;
 }
 
+/* UPDATED: blue glass hover, no purple */
 .skill-tags span {
     padding: 0.45rem 0.9rem;
     background: rgba(255, 255, 255, 0.04);
@@ -455,7 +439,7 @@ h1, h2, h3, h4, h5, h6 {
     content: '';
     position: absolute;
     top: 0;
-    left: 20px; /* Adjust based on layout */
+    left: 20px;
     height: 100%;
     width: 2px;
     background: rgba(255, 255, 255, 0.1);
@@ -527,28 +511,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-input {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 6px;
-    color: #fff;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    transition: 0.3s;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    background: rgba(0, 0, 0, 0.4);
-}
-
 .social-links {
     display: flex;
     justify-content: center;
@@ -604,20 +566,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive */
 @media (max-width: 900px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .nav-links {
-        display: none; /* Mobile menu implementation later if needed */
-    }
-    
-    .hamburger {
-        display: flex;
-    }
+    .hero-title { font-size: 3rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
 }
